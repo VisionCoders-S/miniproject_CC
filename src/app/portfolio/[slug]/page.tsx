@@ -1,0 +1,1 @@
+import {students} from '../../../data/students'; export default async function Page({params}:any){const s=students.find(x=>x.slug===params.slug); if(!s)return <div>Not found</div>; return <main style={{padding:40,color:'white',background:'#030014',minHeight:'100vh'}}><h1>{s.name}</h1><p>{s.role}</p><p>{s.bio}</p></main>}

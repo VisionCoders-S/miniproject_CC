@@ -1,0 +1,1 @@
+import Link from "next/link"; import {students} from "../data/students"; export default function Home(){return <main style={{padding:40,color:'white',background:'#030014',minHeight:'100vh'}}><h1>Future Engineers Showcase</h1>{students.map((s:any)=><div key={s.slug}><Link href={`/portfolio/${s.slug}`}>{s.name}</Link></div>)}</main>}
