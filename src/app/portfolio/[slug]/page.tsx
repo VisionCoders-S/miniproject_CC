@@ -31,8 +31,8 @@ export default async function PortfolioPage({ params }: { params: Promise<{ slug
           <h1>{student.name.split(" ")[0]}<br /><span>{student.name.split(" ").slice(1).join(" ")}</span></h1>
           <p className="hero-description">{student.bio}</p>
           <div className="profile-actions">
-            <a className="button button-primary" href={student.github} target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-            <a className="button button-outline" href={student.linkedin} target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+            {student.github && <a className="button button-primary" href={student.github} target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>}
+            {student.linkedin && <a className="button button-outline" href={student.linkedin} target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>}
           </div>
         </div>
         <div className="profile-art" aria-label={`${student.name} initials`}>

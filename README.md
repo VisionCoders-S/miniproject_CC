@@ -64,7 +64,7 @@ Edit the `students` array in [`src/data/students.ts`](./src/data/students.ts). E
 
 - `slug` — URL-safe identifier used for the profile route, such as `abhishek` in `/portfolio/abhishek`
 - `name`, `role`, and `bio`
-- `github` and `linkedin` profile URLs
+- `github` and `linkedin` profile URLs (optional)
 - `skills` — list of skill names
 - `projects` — list of project names and descriptions
 
