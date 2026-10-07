@@ -47,7 +47,12 @@ The generated website is written to the `out/` directory. Because this project u
 
 ## Deploy to GitHub Pages
 
-The repository includes a GitHub Actions workflow that builds and deploys the site whenever changes are pushed to `main`. In the repository settings, open **Settings → Pages** and set **Build and deployment → Source** to **GitHub Actions**. Once the workflow completes successfully, the site will be available at:
+The repository includes a GitHub Actions workflow that builds and deploys the site whenever changes are pushed to `main`. The first deployment requires GitHub Pages to be enabled for the repository. Choose one of these options:
+
+1. In the repository settings, open **Settings → Pages** and set **Build and deployment → Source** to **GitHub Actions**.
+2. To let the workflow enable Pages, create a classic personal access token with the `repo` scope, then add it to the repository as an Actions secret named `PAGES_DEPLOY_TOKEN` under **Settings → Secrets and variables → Actions**. Never paste the token into source code, a commit, or chat. The workflow uses the secret only when it is present.
+
+After Pages is enabled, rerun the failed deployment from **Actions**, or push a new commit to `main`. Once the workflow completes successfully, the site will be available at:
 
 <https://visioncoders-s.github.io/miniproject_CC/>
 
