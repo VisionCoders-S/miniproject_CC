@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { students } from "../data/students";
 
 export default function Home() {
@@ -47,16 +48,24 @@ export default function Home() {
         </div>
         <div className="student-grid">
           {students.map((student, index) => {
-            const initials = student.name.split(" ").map((part) => part[0]).slice(0, 2).join("");
             return (
               <article className={`student-card student-card-${index + 1}`} key={student.slug}>
                 <div className="student-card-top">
                   <span className="card-index">0{index + 1} / 0{students.length}</span>
                   <span className="card-arrow" aria-hidden="true">↗</span>
                 </div>
-                <div className="avatar">{initials}</div>
+                <div className="avatar">
+                  <Image
+                    src={`${process.env.GITHUB_ACTIONS === "true" ? "/miniproject_CC" : ""}${student.photo}`}
+                    alt={`${student.name} portrait`}
+                    fill
+                    sizes="57px"
+                    className="avatar-image"
+                  />
+                </div>
                 <p className="student-role">{student.role}</p>
                 <h3>{student.name}</h3>
+                {student.sampleContent && <p className="sample-note">Sample portfolio content — details are placeholders.</p>}
                 <p className="student-bio">{student.bio}</p>
                 <div className="skill-list">
                   {student.skills.slice(0, 3).map((skill) => <span className="skill-chip" key={skill}>{skill}</span>)}

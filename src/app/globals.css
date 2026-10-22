@@ -69,12 +69,14 @@ h1, h2, h3, p { margin-top: 0; }
 .student-card-2 { background: #1a191e; }
 .student-card-top, .project-card-top { width: 100%; display: flex; justify-content: space-between; color: var(--dim); font: 9px "DM Mono", monospace; letter-spacing: .08em; }
 .card-arrow { color: var(--lime); font-size: 17px; }
-.avatar { width: 57px; height: 57px; display: grid; place-items: center; margin: 25px 0 18px; border: 1px solid #d4f27950; border-radius: 50%; background: #d4f27912; color: var(--lime); font: 500 18px "Space Grotesk", sans-serif; }
+.avatar { width: 57px; height: 57px; position: relative; display: grid; place-items: center; margin: 25px 0 18px; overflow: hidden; border: 1px solid #d4f27950; border-radius: 50%; background: #d4f27912; color: var(--lime); font: 500 18px "Space Grotesk", sans-serif; }
+.avatar-image { object-fit: cover; }
 .student-card-2 .avatar { color: var(--violet); border-color: #b7a8ff50; background: #b7a8ff12; }
 .student-role { margin-bottom: 7px; color: var(--lime); font: 9px "DM Mono", monospace; letter-spacing: .04em; text-transform: uppercase; }
 .student-card-2 .student-role { color: var(--violet); }
 .student-card h3 { margin-bottom: 8px; font: 500 25px "Space Grotesk", sans-serif; letter-spacing: -.045em; }
 .student-bio { max-width: 420px; margin-bottom: 17px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.sample-note { margin: -2px 0 12px; color: #f6a277; font: 9px/1.5 "DM Mono", monospace; }
 .skill-list { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 23px; }
 .skill-chip { padding: 6px 8px; border: 1px solid var(--line); color: #c7c6bf; font: 9px "DM Mono", monospace; }
 .skill-more { align-self: center; color: var(--dim); font: 9px "DM Mono", monospace; }
@@ -91,7 +93,9 @@ h1, h2, h3, p { margin-top: 0; }
 .profile-actions { display: flex; gap: 10px; }
 .profile-art { height: 365px; position: relative; display: grid; place-items: center; }
 .profile-art-ring { position: absolute; width: 310px; height: 310px; border: 1px solid #ffffff20; border-radius: 50%; }
-.profile-monogram { width: 216px; height: 250px; display: grid; place-items: center; transform: rotate(5deg); background: linear-gradient(145deg, #d4f279, #b9cf69); color: #24251d; font: 500 76px "Space Grotesk", sans-serif; letter-spacing: -.09em; box-shadow: 14px 20px 70px #0008; }
+.profile-photo-frame { width: 216px; height: 250px; position: relative; overflow: hidden; transform: rotate(5deg); background: linear-gradient(145deg, #d4f279, #b9cf69); box-shadow: 14px 20px 70px #0008; }
+.profile-photo { object-fit: cover; }
+.sample-disclaimer { margin: 20px 0 0; padding: 13px 16px; border-left: 2px solid #f6a277; background: #f6a2770d; color: #e5b398; font: 10px/1.7 "DM Mono", monospace; }
 .profile-art-note { position: absolute; right: 3px; bottom: 31px; color: var(--muted); font: 9px/1.7 "DM Mono", monospace; letter-spacing: .08em; }
 .profile-art-star { position: absolute; top: 19px; right: 34px; color: var(--violet); font-size: 37px; }
 .profile-details { display: grid; grid-template-columns: .9fr 1.1fr; gap: 9%; padding: 95px 0 105px; border-bottom: 1px solid var(--line); }
@@ -132,7 +136,7 @@ h1, h2, h3, p { margin-top: 0; }
   .profile-hero { grid-template-columns: 1fr; padding: 65px 0 25px; }
   .profile-art { height: 300px; }
   .profile-art-ring { width: 250px; height: 250px; }
-  .profile-monogram { width: 177px; height: 204px; font-size: 64px; }
+  .profile-photo-frame { width: 177px; height: 204px; }
   .profile-details { grid-template-columns: 1fr; gap: 42px; padding: 68px 0; }
   .detail-block h2 { font-size: 38px; }
   .skills-block h2 { font-size: 32px; }

@@ -64,11 +64,13 @@ Edit the `students` array in [`src/data/students.ts`](./src/data/students.ts). E
 
 - `slug` — URL-safe identifier used for the profile route, such as `abhishek` in `/portfolio/abhishek`
 - `name`, `role`, and `bio`
+- `photo` — path to the student's image in `public/students/`
 - `github` and `linkedin` profile URLs (optional)
 - `skills` — list of skill names
 - `projects` — list of project names and descriptions
+- `sampleContent` — optional flag to show a note when profile details are placeholders
 
-After adding a student, save the file. The homepage card and static profile route are generated from this data.
+Add the photo to `public/students/` and set its path in the student's `photo` field. After saving the data, the homepage card and static profile route are generated from it.
 
 ## Useful project files
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { students } from "../../../data/students";
 
@@ -11,8 +12,6 @@ export default async function PortfolioPage({ params }: { params: Promise<{ slug
   const student = students.find((item) => item.slug === slug);
 
   if (!student) notFound();
-
-  const initials = student.name.split(" ").map((part) => part[0]).slice(0, 2).join("");
 
   return (
     <main className="site-shell">
@@ -35,13 +34,28 @@ export default async function PortfolioPage({ params }: { params: Promise<{ slug
             {student.linkedin && <a className="button button-outline" href={student.linkedin} target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>}
           </div>
         </div>
-        <div className="profile-art" aria-label={`${student.name} initials`}>
+        <div className="profile-art">
           <div className="profile-art-ring" />
-          <div className="profile-monogram">{initials}</div>
+          <div className="profile-photo-frame">
+            <Image
+              src={`${process.env.GITHUB_ACTIONS === "true" ? "/miniproject_CC" : ""}${student.photo}`}
+              alt={`${student.name} portrait`}
+              fill
+              sizes="(max-width: 760px) 177px, 216px"
+              className="profile-photo"
+              priority
+            />
+          </div>
           <span className="profile-art-note">CREATING<br />WHAT'S NEXT</span>
           <span className="profile-art-star" aria-hidden="true">✳</span>
         </div>
       </section>
+
+      {student.sampleContent && (
+        <p className="sample-disclaimer">
+          Sample portfolio content: the role, bio, skills, and projects shown here are placeholders and should be replaced with Neel's verified details.
+        </p>
+      )}
 
       <section className="profile-details">
         <div className="detail-block">
